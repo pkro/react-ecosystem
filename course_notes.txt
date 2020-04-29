@@ -1,0 +1,7 @@
+Main reason for using the react ecosystem: separation of concerns
+
+redux: concern: state of the app
+react-thunk: side effect management (network requestts etc)
+reselect: abstract away the state's structure
+styled components: component styling, esp. when appearance depends on state
+
