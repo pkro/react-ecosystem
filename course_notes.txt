@@ -5,3 +5,11 @@ react-thunk: side effect management (network requestts etc)
 reselect: abstract away the state's structure
 styled components: component styling, esp. when appearance depends on state
 
+npx runs executables installed by npm
+"npm run" runs scripts defined in package.json / "scripts"
+see also: https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm
+
+
+see also: https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm
+
+
