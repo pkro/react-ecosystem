@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.cs';
+import './App.css';
 
 const App = () => {
   return <div className="App"> React is working</div>;
