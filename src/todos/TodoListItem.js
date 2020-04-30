@@ -6,12 +6,18 @@ const TodoListItem = ({ todo, onRemoveTodoPressed }) => {
     <div className="todo-item-container">
       <h3>{todo.text}</h3>
       <div className="buttons-container">
-        <button className="btn btn-success">Mark as completed</button>
+        <button className="btn btn-success">
+          {todo.isCompleted ? (
+            <i className="fa fa-check-circle"></i>
+          ) : (
+            <i className="fa fa-circle"></i>
+          )}
+        </button>
         <button
           className="btn btn-danger"
           onClick={() => onRemoveTodoPressed(todo.text)}
         >
-          Delete
+          <i className="fa fa-trash"></i>
         </button>
       </div>
     </div>

@@ -1,8 +1,15 @@
-.todo-list-item {
+.todo-item-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   box-shadow: -5px 5px 5px 2px gray;
   border-radius: 0.2rem;
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
