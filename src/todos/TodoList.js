@@ -12,6 +12,7 @@ const TodoList = ({
 }) => {
   return (
     <div>
+      <TodoForm />
       <div className="list-wrapper">
         {todos.map((todo) => (
           <TodoListItem
@@ -21,7 +22,6 @@ const TodoList = ({
           />
         ))}
       </div>
-      <TodoForm />
     </div>
   );
 };
