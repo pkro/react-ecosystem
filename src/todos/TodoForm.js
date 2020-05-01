@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createTodo } from './actions';
+import { addTodoRequest } from './thunks';
 
 import './TodoForm.css';
 const TodoForm = ({ todos, onCreatePressed }) => {
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => ({
 // properties of the returned object can be accesses in component, like mapStateToProps
 // difference: it takes "dispatch" instead of state => the redux actions needed
 const mapDispatchToProps = (dispatch) => ({
-  onCreatePressed: (text) => dispatch(createTodo(text)),
+  onCreatePressed: (text) => dispatch(addTodoRequest(text)),
   // -> now we have a function "onCreatePressed" in the props that takes a string argument (text) that calls the createTodo action
 });
 

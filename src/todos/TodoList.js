@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TodoListItem from './TodoListItem';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
-import { removeTodo, completeTodo } from './actions';
-import { displayAlert } from './thunks';
+import { completeTodo } from './actions';
+import { loadTodos, removeTodoRequest } from './thunks';
 import './TodoList.css';
 
 const TodoList = ({
   todos = [{ text: 'Add more todos' }],
   onRemoveTodoPressed,
   onCompleteTodoPressed,
-  onDisplayAlertClicked,
+  isLoading,
+  startLoadingTodos,
 }) => {
-  return (
+  useEffect(() => {
+    startLoadingTodos();
+  }, []);
+  const loadingMessage = (
+    <div className="animate-flicker">Loading todos...</div>
+  );
+
+  const content = (
     <div>
       <TodoForm />
       <div className="list-wrapper">
@@ -21,22 +29,25 @@ const TodoList = ({
             todo={todo}
             key={todo.text}
             onRemoveTodoPressed={onRemoveTodoPressed}
-            onCompleteTodoPressed={onDisplayAlertClicked}
+            onCompleteTodoPressed={onCompleteTodoPressed}
           />
         ))}
       </div>
     </div>
   );
+
+  return isLoading ? loadingMessage : content;
 };
 
 const mapStateToProps = (state) => ({
   todos: state.todos,
+  isLoading: state.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onRemoveTodoPressed: (todo) => dispatch(removeTodo(todo)),
+  onRemoveTodoPressed: (id) => dispatch(removeTodoRequest(id)),
   onCompleteTodoPressed: (todo) => dispatch(completeTodo(todo)),
-  onDisplayAlertClicked: (text) => dispatch(displayAlert(text)),
+  startLoadingTodos: () => dispatch(loadTodos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

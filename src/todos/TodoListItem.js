@@ -2,7 +2,6 @@ import React from 'react';
 import './TodoListItem.css';
 
 const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
-  console.log(onCompleteTodoPressed);
   return (
     <div className="todo-item-container">
       <h3>{todo.text}</h3>
@@ -19,7 +18,7 @@ const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
         </button>
         <button
           className="btn btn-danger"
-          onClick={() => onRemoveTodoPressed(todo.text)}
+          onClick={() => onRemoveTodoPressed(todo.id)}
         >
           <i className="fa fa-trash"></i>
         </button>
