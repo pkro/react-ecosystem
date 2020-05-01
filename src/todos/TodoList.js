@@ -36,7 +36,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onRemoveTodoPressed: (todo) => dispatch(removeTodo(todo)),
   onCompleteTodoPressed: (todo) => dispatch(completeTodo(todo)),
-  onDisplayAlertClicked: () => dispatch(displayAlert()),
+  onDisplayAlertClicked: (text) => dispatch(displayAlert(text)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
