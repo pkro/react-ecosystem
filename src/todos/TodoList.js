@@ -3,13 +3,14 @@ import TodoListItem from './TodoListItem';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
 import { removeTodo, completeTodo } from './actions';
-
+import { displayAlert } from './thunks';
 import './TodoList.css';
 
 const TodoList = ({
   todos = [{ text: 'Add more todos' }],
   onRemoveTodoPressed,
   onCompleteTodoPressed,
+  onDisplayAlertClicked,
 }) => {
   return (
     <div>
@@ -20,7 +21,7 @@ const TodoList = ({
             todo={todo}
             key={todo.text}
             onRemoveTodoPressed={onRemoveTodoPressed}
-            onCompleteTodoPressed={onCompleteTodoPressed}
+            onCompleteTodoPressed={onDisplayAlertClicked}
           />
         ))}
       </div>
@@ -35,6 +36,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onRemoveTodoPressed: (todo) => dispatch(removeTodo(todo)),
   onCompleteTodoPressed: (todo) => dispatch(completeTodo(todo)),
+  onDisplayAlertClicked: () => dispatch(displayAlert()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
