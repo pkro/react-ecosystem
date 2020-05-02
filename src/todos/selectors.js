@@ -4,3 +4,11 @@ export const getTodosLoading = (state) => {
 export const getTodos = (state) => {
   return state.todos.data;
 };
+
+export const getIncompleteTodos = (state) => {
+  return state.todos.data.filter((todo) => !todo.isCompleted);
+};
+
+export const getCompleteTodos = (state) => {
+  return state.todos.data.filter((todo) => todo.isCompleted);
+};
