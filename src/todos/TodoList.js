@@ -3,7 +3,11 @@ import TodoListItem from './TodoListItem';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
 import { completeTodo } from './actions';
-import { loadTodos, removeTodoRequest } from './thunks';
+import {
+  loadTodos,
+  removeTodoRequest,
+  toggleTodoCompletedRequest,
+} from './thunks';
 import './TodoList.css';
 
 const TodoList = ({
@@ -48,6 +52,7 @@ const mapDispatchToProps = (dispatch) => ({
   onRemoveTodoPressed: (id) => dispatch(removeTodoRequest(id)),
   onCompleteTodoPressed: (todo) => dispatch(completeTodo(todo)),
   startLoadingTodos: () => dispatch(loadTodos()),
+  onCompleteTodoPressed: (id) => dispatch(toggleTodoCompletedRequest(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

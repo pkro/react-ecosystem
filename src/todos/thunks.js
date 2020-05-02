@@ -1,9 +1,10 @@
 import {
-  loadTodosfailure,
+  loadTodosFailure,
   loadTodosInProgress,
   loadTodosSuccess,
   createTodo,
   removeTodo,
+  completeTodo,
 } from './actions';
 
 // a thunk  returns a function that contains the logic if the thunk is triggered
@@ -21,7 +22,7 @@ export const loadTodos = () => async (dispatch, getState) => {
     const todos = await response.json();
     dispatch(loadTodosSuccess(todos));
   } catch (error) {
-    dispatch(loadTodosfailure());
+    dispatch(loadTodosFailure());
     dispatch(displayAlert(error));
   }
 };
@@ -49,6 +50,19 @@ export const removeTodoRequest = (id) => async (dispatch) => {
     });
     const removedTodo = await response.json();
     dispatch(removeTodo(removedTodo));
+  } catch (error) {
+    dispatch(displayAlert(error));
+  }
+};
+
+export const toggleTodoCompletedRequest = (id) => async (dispatch) => {
+  try {
+    const response = await fetch(
+      `http://localhost:8080/todos/${id}/completed`,
+      { method: 'post' }
+    );
+    const todo = await response.json();
+    dispatch(completeTodo(todo));
   } catch (error) {
     dispatch(displayAlert(error));
   }

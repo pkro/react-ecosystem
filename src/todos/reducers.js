@@ -20,10 +20,11 @@ export const todos = (state = [], action) => {
       return state.filter((_todo) => _todo.id !== todo.id);
     }
     case MARK_TODO_AS_COMPLETED: {
-      const { text } = payload;
-      return state
-        .filter((todo) => todo.text !== text)
-        .concat([{ text, isCompleted: true }]);
+      const { todo: updatedTodo } = payload;
+      return state.map((todo) =>
+        todo.id === updatedTodo.id ? updatedTodo : todo
+      );
+      //return state.filter((_todo) => _todo.id !== todo.id).concat([todo]);
     }
 
     case LOAD_TODOS_SUCCESS: {

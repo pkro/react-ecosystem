@@ -8,7 +8,7 @@ const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
       <div className="buttons-container">
         <button
           className="btn btn-success"
-          onClick={() => onCompleteTodoPressed(todo.text)}
+          onClick={() => onCompleteTodoPressed(todo.id)}
         >
           {todo.isCompleted ? (
             <i className="fa fa-check-circle"></i>
