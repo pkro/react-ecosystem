@@ -3,16 +3,24 @@ import React from 'react';
 import TodoItemContainer from '../ui_styled_components/TodoItemContainer';
 import ButtonsContainer from '../ui_styled_components/ButtonsContainer';
 
-const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
+const TodoListItem = ({
+  todo: { id, text, isCompleted, createdAt },
+  onRemoveTodoPressed,
+  onCompleteTodoPressed,
+}) => {
   return (
-    <TodoItemContainer>
-      <h3>{todo.text}</h3>
+    <TodoItemContainer createdAt={createdAt}>
+      <div>
+        <h3>{text}</h3>
+        <p>Created: {new Date(createdAt).toLocaleDateString()}</p>
+      </div>
+
       <ButtonsContainer>
         <button
           className="btn btn-success"
-          onClick={() => onCompleteTodoPressed(todo.id)}
+          onClick={() => onCompleteTodoPressed(id)}
         >
-          {todo.isCompleted ? (
+          {isCompleted ? (
             <i className="fa fa-check-circle"></i>
           ) : (
             <i className="fa fa-circle"></i>
@@ -20,7 +28,7 @@ const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
         </button>
         <button
           className="btn btn-danger"
-          onClick={() => onRemoveTodoPressed(todo.id)}
+          onClick={() => onRemoveTodoPressed(id)}
         >
           <i className="fa fa-trash"></i>
         </button>
