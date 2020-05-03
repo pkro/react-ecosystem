@@ -9,7 +9,7 @@ const TodoListItem = ({
   onCompleteTodoPressed,
 }) => {
   return (
-    <TodoItemContainer createdAt={createdAt}>
+    <TodoItemContainer createdAt={createdAt} isCompleted={isCompleted}>
       <div>
         <h3>{text}</h3>
         <p>Created: {new Date(createdAt).toLocaleDateString()}</p>
