@@ -15,7 +15,7 @@ const TodoListItem = ({
         <p>Created: {new Date(createdAt).toLocaleDateString()}</p>
       </div>
 
-      <ButtonsContainer>
+      <ButtonsContainer direction="column">
         <button
           className="btn btn-success"
           onClick={() => onCompleteTodoPressed(id)}
