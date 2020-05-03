@@ -4,7 +4,6 @@ export const getTodosLoading = (state) => {
   return state.todos.isLoading;
 };
 export const getTodos = (state) => {
-  console.log(state);
   return state.todos.data;
 };
 

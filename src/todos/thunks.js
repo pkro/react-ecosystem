@@ -29,7 +29,6 @@ export const loadTodos = () => async (dispatch, getState) => {
 
 export const addTodoRequest = (text) => async (dispatch) => {
   const body = JSON.stringify({ text });
-  console.log(body);
   try {
     const response = await fetch('http://localhost:8080/todos', {
       headers: { 'Content-Type': 'application/json' },
