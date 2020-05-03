@@ -1,12 +1,12 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import './App.css';
+import AppContainer from './ui_styled_components/AppContainer';
 import TodoList from './todos/TodoList';
 const App = () => {
   return (
-    <div className="App">
+    <AppContainer>
       <TodoList />
-    </div>
+    </AppContainer>
   );
 };
 

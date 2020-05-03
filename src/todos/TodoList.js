@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Flicker from '../ui_styled_components/Flicker';
-import ListWrapper from '../ui_styled_components/ListWrapper';
+import ListWrapper from '../ui_styled_components/TodoListWrapper';
 import TodoListItem from './TodoListItem';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
