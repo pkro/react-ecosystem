@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Flicker from '../ui_styled_components/Flicker';
+import ListWrapper from '../ui_styled_components/ListWrapper';
 import TodoListItem from './TodoListItem';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
@@ -15,8 +15,6 @@ import {
   getCompleteTodos,
   getIncompleteTodos,
 } from './selectors';
-
-import './TodoList.css';
 
 const TodoList = ({
   completeTodos,
@@ -35,7 +33,7 @@ const TodoList = ({
     <div>
       <TodoForm />
       <h3>Incomplete</h3>
-      <div className="list-wrapper">
+      <ListWrapper>
         {incompleteTodos.map((todo) => (
           <TodoListItem
             todo={todo}
@@ -44,10 +42,10 @@ const TodoList = ({
             onCompleteTodoPressed={onCompleteTodoPressed}
           />
         ))}
-      </div>
+      </ListWrapper>
       <hr />
       <h3>Completed</h3>
-      <div className="list-wrapper">
+      <ListWrapper>
         {completeTodos.map((todo) => (
           <TodoListItem
             todo={todo}
@@ -56,7 +54,7 @@ const TodoList = ({
             onCompleteTodoPressed={onCompleteTodoPressed}
           />
         ))}
-      </div>
+      </ListWrapper>
     </div>
   );
 

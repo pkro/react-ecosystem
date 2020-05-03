@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTodoRequest } from './thunks';
 
-import './TodoForm.css';
+import TodoFormContainer from '../ui_styled_components/TodoFormContainer';
+
 const TodoForm = ({ todos, onCreatePressed }) => {
   const [inputValue, setInputValue] = useState('');
   return (
-    <div className="todo-form">
+    <TodoFormContainer>
       <input
         type="text"
         name="todo"
@@ -30,7 +31,7 @@ const TodoForm = ({ todos, onCreatePressed }) => {
       >
         Create Todo
       </button>
-    </div>
+    </TodoFormContainer>
   );
 };
 

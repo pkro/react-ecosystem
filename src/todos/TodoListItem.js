@@ -1,11 +1,13 @@
 import React from 'react';
-import './TodoListItem.css';
+
+import TodoItemContainer from '../ui_styled_components/TodoItemContainer';
+import ButtonsContainer from '../ui_styled_components/ButtonsContainer';
 
 const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
   return (
-    <div className="todo-item-container">
+    <TodoItemContainer>
       <h3>{todo.text}</h3>
-      <div className="buttons-container">
+      <ButtonsContainer>
         <button
           className="btn btn-success"
           onClick={() => onCompleteTodoPressed(todo.id)}
@@ -22,8 +24,8 @@ const TodoListItem = ({ todo, onRemoveTodoPressed, onCompleteTodoPressed }) => {
         >
           <i className="fa fa-trash"></i>
         </button>
-      </div>
-    </div>
+      </ButtonsContainer>
+    </TodoItemContainer>
   );
 };
 
