@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import TodoListItem from './TodoListItem';
 import TodoForm from './TodoForm';
 import { connect } from 'react-redux';
@@ -16,6 +17,11 @@ import {
 
 import './TodoList.css';
 
+const BigRedText = styled.div`
+  font-size: 48px;
+  color: #ff0000;
+`;
+
 const TodoList = ({
   completeTodos,
   incompleteTodos,
@@ -32,7 +38,8 @@ const TodoList = ({
   );
 
   const content = (
-    <div>
+    <div className="list-wrapper">
+      <BigRedText>I'm a styled component</BigRedText>
       <TodoForm />
       <h3>Incomplete</h3>
       <div className="list-wrapper">
