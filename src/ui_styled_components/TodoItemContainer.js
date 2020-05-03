@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const TodoItemContainer = styled.div`
+export const TodoItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,6 +8,9 @@ const TodoItemContainer = styled.div`
   border-radius: 0.2rem;
   padding: 0.4rem 1rem;
   margin-bottom: 0.5rem;
+`;
+
+export const TodoItemContainerWithWarning = styled(TodoItemContainer)`
   border-bottom: ${(props) =>
     new Date(props.createdAt) < new Date(Date.now() - 8640000 * 7) &&
     !props.isCompleted
@@ -15,4 +18,4 @@ const TodoItemContainer = styled.div`
       : 'none'};
 `;
 
-export default TodoItemContainer;
+export default TodoItemContainerWithWarning;
